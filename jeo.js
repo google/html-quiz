@@ -38,19 +38,33 @@ document.addEventListener('DOMContentLoaded', function() {
     var el = D.getElementById('questions').firstChild;
     for (; el !== null; el = el.nextSibling) {
       if (el.nodeType !== 1) {
-        /* nop */
-      } else if (el.nodeName.toLowerCase() === 'h2') {
+        continue;
+      }
+
+      if (el.nodeName.toLowerCase() === 'h2') {
         questions = [];
         question = null;
         ret.push({
           title: el.textContent,
           questions: questions,
         });
-      } else if (questions === null) {
-        /* nop */
+        continue;
+      }
+
+      if (questions === null) {
+        continue;
+      }
+
+      if (el.nodeName.toLowerCase() === 'p') {
+        var e = D.createElementNS(NS, 'div');
+        el.parentNode.replaceChild(e, el);
+        e.appendChild(el);
+        el = e;
       } else if (el.nodeName.toLowerCase() !== 'div') {
-        /* nop */
-      } else if (question === null) {
+        continue;
+      }
+
+      if (question === null) {
         el.className = 'q';
         question = el;
       } else {
