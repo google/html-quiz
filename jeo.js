@@ -22,10 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Must be two. */
   var teams = ['Team 1', 'Team 2'];
 
+  var strTie = 'Tie';
+  var strClose = 'Close';
+
+  /***********************************************/
+  /* No need to configure anything further down. */
+  /***********************************************/
 
   var NS = 'http://www.w3.org/1999/xhtml';
   var D = document;
 
+  /* Get categories and questions from DOM. */
   var categories = (function() {
     var ret = [], questions = null, question = null;
     var el = D.getElementById('questions').firstChild;
@@ -55,8 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
     return ret;
   })();
 
+  /* Scores will be saved here. */
   var scores = [];
 
+
+  /* Helper functions */
 
   var nukeChildren = function(el) {
     while (el.firstChild) {
@@ -78,24 +88,48 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
 
-  var makeClickHandler = (function() {
-    var m = D.getElementById('m');
-    var links = D.getElementById('links');
+  /* Create the question board. */
 
+  var mDiv, linksList, xLink, tieLink, team0Link, team1link, closeLink;
+
+  (function() {
+    mDiv = addNewElement(D.getElementsByTagName('body')[0], 'div');
+    mDiv.id = 'm';
+
+    var div = addNewElement(addNewElement(mDiv, 'div'), 'div');
+
+    xLink = addNewElement(div, 'a', 'x');
+    xLink.id = 'x';
+
+    linksList = addNewElement(div, 'ul');
+    linksList.id = 'links';
+    team0Link = addNewElement(addNewElement(linksList, 'li'), 'a', teams[0]);
+    tieLink   = addNewElement(addNewElement(linksList, 'li'), 'a', strTie);
+    team1Link = addNewElement(addNewElement(linksList, 'li'), 'a', teams[1]);
+
+    var el = addNewElement(div, 'ul');
+    closeLink = addNewElement(addNewElement(el, 'li'), 'a', strClose);
+  })();
+
+
+  /* Build table with quesitons. */
+
+  var makeClickHandler = (function() {
     var questionShown = false;
     var question, points, td;
 
     var close = function() {
-      m.className = '';
+      mDiv.className = '';
       questionShown = false;
       question[0].parentNode.removeChild(question[0]);
       question[1].parentNode.removeChild(question[1]);
+      return false;
     };
 
-    D.getElementById('c').onclick = close;
-
-    D.getElementById('nt').onclick = function() {
+    xLink.onclick = close;
+    tieLink.onclick = function() {
       m.className += ' showAnswer';
+      return false;
     };
 
     (function() {
@@ -109,12 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
           td.className = '';
           td.onclick = null;
           close();
+          return false;
         };
       };
 
-      D.getElementById('t0').onclick = makeTeamClickHandler(0);
-      D.getElementById('t1').onclick = makeTeamClickHandler(1);
-      D.getElementById('cc').onclick = makeTeamClickHandler(-1);
+      team0Link.onclick = makeTeamClickHandler(0);
+      team1Link.onclick = makeTeamClickHandler(1);
+      closeLink.onclick = makeTeamClickHandler(-1);
     })();
 
     return function(_question, _points) {
@@ -124,14 +159,14 @@ document.addEventListener('DOMContentLoaded', function() {
           points = _points;
           td = this;
 
-          links.parentNode.insertBefore(question[0], links);
-          links.parentNode.insertBefore(question[1], links);
+          linksList.parentNode.insertBefore(question[0], linksList);
+          linksList.parentNode.insertBefore(question[1], linksList);
           m.className = 'show';
         }
+        return false;
       };
     };
   })();
-
 
   var makeScoreHandler = function(team) {
     return function() {
@@ -141,14 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
         scores[team][0] = score
         nukeChildren(scores[team][1]);
         addText(scores[team][1], '' + score);
+        return false;
       }
     }
   };
 
-
   (function() {
-    var table = D.getElementById('t'), rowset, row, cell;
+    var table, rowset, row, cell;
 
+    table = D.createElementNS(NS, 'table');
+    mDiv.parentNode.insertBefore(table, mDiv);
     rowset = addNewElement(table, 'thead');
     row = addNewElement(rowset, 'tr');
     row.className = 'title';
@@ -178,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
           cell.className = 'active';
           cell.onclick = makeClickHandler(cat.questions[i - 1], i * 100);
         } else {
-          addText(cell, ' ');
+          addText(cell, '\u00A0');
         }
       });
     }
@@ -207,8 +244,5 @@ document.addEventListener('DOMContentLoaded', function() {
       row.appendChild(cell);
     }
     scores.push([0, addScoreCell(1)]);
-
-    D.getElementById('t0').innerHTML = teams[0];
-    D.getElementById('t1').innerHTML = teams[1];
   })();
 });

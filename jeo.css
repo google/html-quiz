@@ -121,12 +121,13 @@ tfoot div + div {
     text-align: center;
     text-decoration: none;
     color: #009;
+    cursor: default;
 }
 #m a:active, #m a:focus, #m a:hover {
     color: #00F;
 }
 
-#c {
+#x {
     float: right;
     font-size: 0.5em;
     font-weight: bold;
@@ -134,7 +135,7 @@ tfoot div + div {
     border-bottom: 0.1em solid #000;
     border-left: 0.1em solid #000;
 }
-#c:hover, #c:focus {
+#x:hover, #x:focus {
     background: #F00;
 }
 
@@ -159,7 +160,7 @@ p {
 #m.showAnswer .a { visibility: visible; }
 #m.showAnswer ul { display: none; }
 #m.showAnswer ul + ul { display: block; }
-#m.showAnswer #c { visibility: hidden; }
+#m.showAnswer #x { visibility: hidden; }
 
 
 @media print {
@@ -192,7 +193,7 @@ p {
         font-style: italic;
     }
 
-    #t, #m, h1, img {
+    table, #m, h1, img {
         display: none;
     }
 }
