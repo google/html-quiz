@@ -58,12 +58,13 @@ thead tr.categories {
 }
 
 tbody td {
-    border: 0.2em solid #000;
-    background: #336;
-    color: #000;
+    border: 0.2em solid #888;
+    background: #889;
+    color: #999;
     font-weight: bold;
 }
 tbody td.active {
+    border-color: #000;
     background: #69F;
     color: #FF0;
     cursor: pointer;
