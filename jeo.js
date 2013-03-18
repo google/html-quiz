@@ -159,6 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
           points = _points;
           td = this;
 
+          question[0] = question[0].cloneNode(true);
+          question[1] = question[1].cloneNode(true);
           linksList.parentNode.insertBefore(question[0], linksList);
           linksList.parentNode.insertBefore(question[1], linksList);
           m.className = 'show';
