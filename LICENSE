@@ -1,5 +1,5 @@
 
-                          Jeopardy-like quiz script
+                                 Quiz script
 
                           Copyright 2013 Google Inc.
 
@@ -9,11 +9,11 @@
 
     This is not a Google product.
 
-    The JavaScript file (jeo.js) is licensed under the terms of the Apache
+    The JavaScript file (quiz.js) is licensed under the terms of the Apache
     License version 2.0 included in the LICENSE.AL2 file and available at
     <http://www.apache.org/licenses/LICENSE-2.0>
 
-    The CSS (jeo.css) and HTML (index.html) files are licensed under the
+    The CSS (quiz.css) and HTML (index.html) files are licensed under the
     terms of Creative Commons Attribution 3.0 Unported License included in
     the LICENSE.CC-BY-3 file and available at
     <http://creativecommons.org/licenses/by/3.0/deed.en>.

@@ -1,5 +1,5 @@
 /*
- * Jeopardy-like quiz script.
+ * Quiz script.
  * Copyright 2013 Google Inc.
  * Author: Michal Nazarewicz <mina86@mina86.com>
  *

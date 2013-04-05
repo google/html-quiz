@@ -1,6 +1,6 @@
 
-Jeopardy-like quiz script
-=========================
+Quiz script
+============
 
 Copyright 2013 Google Inc.
 Written by [Michał Nazarewicz](mailto:mina86@mina86.com).
@@ -9,9 +9,7 @@ This is not a Google product.
 Overview
 --------
 
-This is a Jeopardy-like quiz game with the difference that it
-currently supports only two players (or teams) and there are no
-negative points.
+This is a simple quiz game which supports two players (or teams).
 
 The idea is that teams get questions alternately and if one does not
 answer the other gets a chance.  If neither answers correctly, it's
@@ -43,7 +41,7 @@ so this includes images, embedded audio or video, etc.  Beware that
 you may need to add some styling for the elements to show up properly
 on the question board and when printing.
 
-Secondly, there is a `teams` variable in the `jeo.js` file.  It
+Secondly, there is a `teams` variable in the `quiz.js` file.  It
 contains the names of the two teams that participate (and yes, there
 must be two teams).  Finally, if you want to localise the script to
 a different language, you may change the value of `strTie` and
@@ -63,7 +61,7 @@ from 100 to 500 for each question in the category.  Clicking on such
 a box brings up the question board with the question, an “x” link in
 top right corner and three links at the bottom: “Team 1”, “Tie” and
 “Team 2” (the text obviously depends on values of configuration
-variables in `jeo.js` file).
+variables in `quiz.js` file).
 
 Pressing “x” hides the question board in case you've clicked on it by
 mistake.  “Team 1” and “Team 2” links will hide the question board,
