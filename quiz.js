@@ -221,7 +221,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     rowset = addNewElement(table, 'tbody');
 
-    for (var i = 1; i <= 5; ++i) {
+    var max = 0;
+    categories.forEach(function(cat) {
+      if (cat.questions.length > max) {
+        max = cat.questions.length;
+      }
+    });
+
+    for (var i = 1; i <= max; ++i) {
       row = addNewElement(rowset, 'tr');
 
       categories.forEach(function(cat) {

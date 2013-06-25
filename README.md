@@ -31,10 +31,10 @@ the `index.html` file and they include content of:
 Categories are determined by the H2 elements and each question and
 answer is specified as two DIV or P elements.  If either question or
 answer is just a single paragraph a single P element can be used,
-otherwise a DIV element is necessary.  Because of some scripts
-limitations, there must be at least two categories.  And there must be
-exactly five questions per category – if any are missing, a greyed out
-box will be displayed.
+otherwise a DIV element is necessary.  Because of script's
+limitations, there must be at least two categories.  There is no limit
+on number of questions per category, but if some categories have fever
+questions, a greyed out box will be displayed.
 
 You can put almost any kind of HTML in either a question or an answer
 so this includes images, embedded audio or video, etc.  Beware that
