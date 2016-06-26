@@ -20,7 +20,7 @@
 
 body {
     font-family: Helvetica, sans;
-    font-size: 24pt;
+    font-size: 14pt;
     background: #999;
 }
 
@@ -50,11 +50,43 @@ thead tr.categories {
     height: 5em;
 }
 
+h1 {
+    margin-top: 0;
+}
+
 .categories th {
     border: 0.2em solid #000;
-    background: #69F;
+    background: #3F51B5;
     color: #FF0;
     font-weight: bold;
+}
+
+.btn_select {
+    background: #3498db;
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 4px;
+    text-shadow: 1px 1px 3px #666666;
+    box-shadow: 2px 2px 2px #666666;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn_select:hover {
+    background: #3cb0fd;
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+.btn_blue_light {
+    background: #4da6ff;
+    background-image: linear-gradient(to bottom, #4da6ff, #3c95ef);
+}
+
+.btn_blue_light:hover {
+    background: #66b3ff;
+    background-image: linear-gradient(to bottom, #66b3ff, #56a3ef);
 }
 
 tbody td {
@@ -71,7 +103,14 @@ tbody td.active {
 }
 tbody td.active:hover {
     color: #000;
-    background: #6FF;
+    background: #4dd2ff;
+}
+
+div.q > p {
+    text-align: center;
+}
+div.a > p {
+    text-align: center;
 }
 
 tfoot {
