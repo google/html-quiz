@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
     return el;
   };
 
+  var addNewClass = function(el, class_name){
+    el.className += " " + class_name;
+  }
 
   /* Create the question board. */
 
@@ -117,12 +120,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     linksList = addNewElement(div, 'ul');
     linksList.id = 'links';
-    team0Link = addNewElement(addNewElement(linksList, 'li'), 'a', teams[0]);
-    tieLink   = addNewElement(addNewElement(linksList, 'li'), 'a', strTie);
-    team1Link = addNewElement(addNewElement(linksList, 'li'), 'a', teams[1]);
+    team0Link = addNewElement(addNewElement(linksList, 'li'), 'button', teams[0]);
+    tieLink   = addNewElement(addNewElement(linksList, 'li'), 'button', strTie);
+    team1Link = addNewElement(addNewElement(linksList, 'li'), 'button', teams[1]);
+    addNewClass(team0Link, 'btn_select');
+    addNewClass(tieLink, 'btn_select btn_blue_light');
+    addNewClass(team1Link, 'btn_select');
 
     var el = addNewElement(div, 'ul');
-    closeLink = addNewElement(addNewElement(el, 'li'), 'a', strClose);
+    closeLink = addNewElement(addNewElement(el, 'li'), 'button', strClose);
+    addNewClass(closeLink, 'btn_select btn_blue_light');
   })();
 
 
