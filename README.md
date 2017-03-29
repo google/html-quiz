@@ -11,12 +11,12 @@ Overview
 
 This is a simple quiz game which supports two players (or teams).
 
-The idea is that teams get questions alternately and if one does not
-answer the other gets a chance.  If neither answers correctly, it’s
-a tie.  Another way to play is to have teams use buzzers of some kind
-to determine which gets the first try at the question.  The way I’ve
-used the script is by having two asymmetric teams and the smaller one
-always getting the first chance.
+The idea is that teams get questions alternately and if the first one
+does not give correct answer, the other gets a chance.  If neither
+answers correctly, that’s a tie.  Another way to play is to have teams
+use buzzers of some kind to determine which gets the first try at the
+question.  The way I’ve used the script is by having two asymmetric
+teams and the smaller one always getting the first chance.
 
 Configuration
 -------------
