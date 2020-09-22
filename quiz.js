@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
     xLink.onclick = close;
     tieLink.onclick = function() {
       m.className += ' showAnswer';
+       var audio = new Audio("sounds/tie.mp3");
+      audio.play();
       return false;
     };
 
