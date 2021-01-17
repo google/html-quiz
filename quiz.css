@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: Helvetica, sans;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14pt;
     background: #999;
 }
@@ -40,11 +40,17 @@ table, tr, td, th {
     font-size: 1em;
     border-collapse: separate;
     cursor: default;
-    border-spacing: 0.2em;
+    border-spacing: 0.4em;
+    border-radius: 1rem;
 }
-
+td:hover{
+    transform: translateY(-5%);
+}
 thead tr.title {
     height: 3em;
+}
+thead tr.title :hover{
+    scale: 1;
 }
 thead tr.categories {
     height: 5em;
@@ -55,15 +61,31 @@ h1 {
 }
 
 .categories th {
-    border: 0.2em solid #000;
-    background: #3F51B5;
-    color: #FF0;
+    border: 0.1em solid #000;
+    background: #1e2a6d;
+    color: rgb(30, 255, 0);
     font-weight: bold;
+    font-size: 22px;
+    position: relative;
+    transition: 0.5s;
 }
-
+.categories th::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%,-50%);
+    background-color: #f60091;
+    width: 25%;
+    height: 0.2rem;
+    z-index: 1;
+}
+.categories th:hover{
+    font-size: 25px;
+}
 .btn_select {
-    background: #3498db;
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    background: #10ca29;
+    background-image: linear-gradient(to bottom, #003c64, #034672);
     border-radius: 4px;
     text-shadow: 1px 1px 3px #666666;
     box-shadow: 2px 2px 2px #666666;
@@ -97,13 +119,16 @@ tbody td {
 }
 tbody td.active {
     border-color: #000;
-    background: #69F;
-    color: #FF0;
+    background: rgb(99, 231, 106);
+    color: rgb(35, 5, 59);
+    font-size: 20px;
     cursor: pointer;
+    transition: .5s ease-in-out;
 }
 tbody td.active:hover {
-    color: #000;
-    background: #4dd2ff;
+    color: rgb(255, 255, 255);
+    background: #009414;
+    font-size: 21px;
 }
 
 div.q > p {
@@ -236,4 +261,21 @@ p {
     table, #m, h1, img {
         display: none;
     }
+}
+
+h1{
+    margin-bottom: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+h1::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translate(-50%,-50%);
+    background-color: #f60091;
+    width: 10%;
+    height: 0.3rem;
+    z-index: 1;
 }
