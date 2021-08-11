@@ -13,28 +13,37 @@
  * or in LICENSE.CC-BY-3 file.
  */
 
+
+/* importing google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Quicksand:wght@300&display=swap');
 * {
     padding: 0;
     margin: 0;
 }
 
 body {
-    font-family: Helvetica, sans;
+    font-family: 'Noto Sans TC', sans-serif;
     font-size: 14pt;
     background: #999;
 }
 
 table {
     position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     table-layout: fixed;
     padding: 1em;
 }
 
-table, tr, td, th {
+table,
+tr,
+td,
+th {
     vertical-align: middle;
     text-align: center;
     font-size: 1em;
@@ -43,9 +52,13 @@ table, tr, td, th {
     border-spacing: 0.2em;
 }
 
+
+/* channging style for header of table */
+
 thead tr.title {
     height: 3em;
 }
+
 thead tr.categories {
     height: 5em;
 }
@@ -55,10 +68,12 @@ h1 {
 }
 
 .categories th {
-    border: 0.2em solid #000;
-    background: #3F51B5;
-    color: #FF0;
+    /* border: 0.2em solid #000; */
+    background: #999;
+    color: rgba(24, 24, 19, 0.733);
     font-weight: bold;
+    /* border-radius: 3px; */
+    box-shadow: inset 4px 4px 10px rgb(179, 174, 174), inset -2px -2px 10px rgb(119, 115, 115);
 }
 
 .btn_select {
@@ -71,6 +86,7 @@ h1 {
     font-size: 14px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .btn_select:hover {
@@ -90,58 +106,75 @@ h1 {
 }
 
 tbody td {
-    border: 0.2em solid #888;
-    background: #889;
-    color: #999;
+    background: #999;
+    color: rgba(43, 40, 40, 0.37);
     font-weight: bold;
+    box-shadow: inset 2px 2px 15px rgb(51, 47, 47), inset -2px -2px 10px rgb(153, 151, 151);
+    border-radius: 3px;
 }
+
 tbody td.active {
-    border-color: #000;
+    border: 0.2em solid #888;
+    border-color: rgb(59, 53, 53);
     background: #69F;
-    color: #FF0;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+    box-shadow: none;
+    border-radius: 0;
 }
+
 tbody td.active:hover {
     color: #000;
     background: #4dd2ff;
+    transform: scale(1.1);
+    transition: all 0.1s;
 }
 
-div.q > p {
+div.q>p {
     text-align: center;
 }
-div.a > p {
+
+div.a>p {
     text-align: center;
 }
 
 tfoot {
     height: 2em;
 }
-tfoot div + div {
-    font-weight: bold;
-}
 
+tfoot div+div {
+    font-weight: bold;
+    font-size: 2em;
+}
 
 #m {
     display: none;
 }
+
 #m.show {
     display: table;
     position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background: rgba(128, 128, 128, 0.75);
     vertical-align: middle;
 }
-#m > div {
+
+#m>div {
     display: table-cell;
     vertical-align: middle;
     padding: 2em;
 }
-#m > div > div {
+
+#m>div>div {
     background: #FFF;
-    border: 0.1em solid #000;
+    border: 0.1em solid #3c95ef;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #3cb0fd;
 }
 
 #m ul {
@@ -149,7 +182,8 @@ tfoot div + div {
     list-style: none;
     text-align: center;
 }
-#m ul + ul {
+
+#m ul+ul {
     display: none;
 }
 
@@ -157,51 +191,75 @@ tfoot div + div {
     display: inline-block;
     margin: 1em 2em;
 }
-#m a, #m a:visited {
+
+#m a,
+#m a:visited {
     text-align: center;
     text-decoration: none;
     color: #009;
-    cursor: default;
+    cursor: pointer;
 }
-#m a:active, #m a:focus, #m a:hover {
+
+#m a:active,
+#m a:focus,
+#m a:hover {
     color: #00F;
 }
 
 #x {
     float: right;
-    font-size: 0.5em;
+    font-size: 1em;
     font-weight: bold;
     padding: 0.1em 0.5em;
     border-bottom: 0.1em solid #000;
     border-left: 0.1em solid #000;
 }
-#x:hover, #x:focus {
+
+#x:hover,
+#x:focus {
     background: #F00;
 }
 
 #m div {
     overflow: auto;
 }
+
 #m p {
     margin: 1em 2em;
     line-height: 1.5em;
 }
+
 .q div {
     text-align: center;
 }
+
 .q img {
     height: 5em
 }
+
 p {
     text-align: justify;
 }
 
-#m .a { visibility: hidden; }
-#m.showAnswer .a { visibility: visible; }
-#m.showAnswer ul { display: none; }
-#m.showAnswer ul + ul { display: block; }
-#m.showAnswer #x { visibility: hidden; }
+#m .a {
+    visibility: hidden;
+}
 
+#m.showAnswer .a {
+    visibility: visible;
+}
+
+#m.showAnswer ul {
+    display: none;
+}
+
+#m.showAnswer ul+ul {
+    display: block;
+}
+
+#m.showAnswer #x {
+    visibility: hidden;
+}
 
 @media print {
     body {
@@ -212,7 +270,6 @@ p {
     #questions {
         display: block !important;
     }
-
     h2 {
         page-break-before: always;
     }
@@ -222,7 +279,7 @@ p {
         padding-top: 0.5em;
         margin-top: 2em;
     }
-    h2 + .q {
+    h2+.q {
         margin-top: 1em;
     }
     .a {
@@ -232,8 +289,10 @@ p {
         margin-bottom: 2em;
         font-style: italic;
     }
-
-    table, #m, h1, img {
+    table,
+    #m,
+    h1,
+    img {
         display: none;
     }
 }
