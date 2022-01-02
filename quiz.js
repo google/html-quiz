@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     })();
 
+    // Function to correct the score, if there was any kind of mix - up.
     var makeScoreHandler = function(team) {
         return function() {
             var score = window.prompt('Enter new score:', scores[team][0]);
