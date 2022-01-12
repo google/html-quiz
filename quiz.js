@@ -82,17 +82,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Helper functions */
 
-  var nukeChildren = function(el) {
+  var nukeChildren = (el) => {
     while (el.firstChild) {
       el.removeChild(el.firstChild);
     }
   };
 
-  var addText = function(el, text) {
+  var addText = (el, text) => {
     el.appendChild(D.createTextNode(text));
   };
 
-  var addNewElement = function(parent, el, opt_text) {
+  var addNewElement = (parent, el, opt_text) => {
     var el = D.createElementNS(NS, el);
     parent.appendChild(el);
     if (opt_text) {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return el;
   };
 
-  var addNewClass = function(el, class_name){
+  var addNewClass = (el, class_name) => {
     el.className += " " + class_name;
   }
 
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   })();
 
-  var makeScoreHandler = function(team) {
+  var makeScoreHandler = (team) => {
     return function() {
       var score = window.prompt('Enter new score:', scores[team][0]);
       if (score) {
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rowset = addNewElement(table, 'tfoot');
     row = addNewElement(rowset, 'tr');
 
-    var addScoreCell = function(team) {
+    var addScoreCell = (team) => {
       cell = addNewElement(row, 'td');
 
       var div = D.createElementNS(NS, 'div');
